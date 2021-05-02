@@ -80,3 +80,87 @@
     border: 1px solid #ccc;
     border-top: none;
   }
+
+
+.toggle{
+  display:inline-block;
+ height:48px;
+ width:48px;  /*background:url("http://icons.iconarchive.com/icons/pixelmixer/basic/48/plus-icon.png"); */
+ }
+ .toggle.expanded{
+   background-color: red;
+   /* background:url("http://cdn2.iconfinder.com/data/icons/onebit/PNG/onebit_32.png"); */
+ }
+
+
+/*SDBFKJRBNJLGHWRLJFNWRJLBLRV JRBVLJFVJLBVLJBVDJBS;LIAEKDNASNFLI NWNWIJKLDXCWNLRBUHR EQQELRJICNROW*/
+
+ .accordion {
+  background-color: #8fb7a5;
+  color: #FFF;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid white;
+  outline: none;
+  transition: 0.4s;
+  font: 22px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #527e6a;
+}
+
+.sub-accordion {
+  background-color: rgb(114, 114, 235);
+  color: #FFF;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid white;
+  outline: none;
+  transition: 0.4s;
+  font: 22px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .sub-accordion:hover {
+  background-color: #322fc2;
+}
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+.sub-panel {
+  padding: 0 18px;
+  display: none;
+  overflow: visible;
+}
+
+p{
+font: 16px; 
+}
+
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 15px;
+  float: right;
+  margin-left: 5px;
+}
+.sub-accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 15px;
+  float: right;
+  margin-left: 5px;
+}
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
