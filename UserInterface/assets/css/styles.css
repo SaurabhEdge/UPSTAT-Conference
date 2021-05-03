@@ -1,0 +1,166 @@
+*{
+    padding:0;
+    margin: 0;
+}
+
+
+/* .site-branding{
+    grid-area: title;
+    background-color: rgb(27, 134, 235);
+} */
+.main-navigation{
+    grid-area: navbar;
+    background-color: pink;
+}
+.main-carousel{
+    grid-area: head;
+    background-color: red;
+}
+.main-content{
+    grid-area: main;
+    background-color: green;
+    padding: 20px;
+    text-align: justify;
+}
+.main-footer{
+    grid-area: footer;
+    background-color: yellow;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%; 
+    text-align: center;
+}
+
+
+.container{
+    display: grid;
+    background-color: aquamarine;
+    grid-template-areas: 
+    'navbar head head head head head'
+    'navbar main main main main main'
+    'navbar main main main main main'
+    'navbar main main main main main';
+    height: 150vh;
+}
+
+/* Schedule */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+
+.toggle{
+  display:inline-block;
+ height:48px;
+ width:48px;  /*background:url("http://icons.iconarchive.com/icons/pixelmixer/basic/48/plus-icon.png"); */
+ }
+ .toggle.expanded{
+   background-color: red;
+   /* background:url("http://cdn2.iconfinder.com/data/icons/onebit/PNG/onebit_32.png"); */
+ }
+
+
+/*SDBFKJRBNJLGHWRLJFNWRJLBLRV JRBVLJFVJLBVLJBVDJBS;LIAEKDNASNFLI NWNWIJKLDXCWNLRBUHR EQQELRJICNROW*/
+
+ .accordion {
+  background-color: #8fb7a5;
+  color: #FFF;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid white;
+  outline: none;
+  transition: 0.4s;
+  font: 22px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #527e6a;
+}
+
+.sub-accordion {
+  background-color: rgb(114, 114, 235);
+  color: #FFF;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid white;
+  outline: none;
+  transition: 0.4s;
+  font: 22px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .sub-accordion:hover {
+  background-color: #322fc2;
+}
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+.sub-panel {
+  padding: 0 18px;
+  display: none;
+  overflow: visible;
+}
+
+p{
+font: 16px; 
+}
+
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 15px;
+  float: right;
+  margin-left: 5px;
+}
+.sub-accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 15px;
+  float: right;
+  margin-left: 5px;
+}
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
