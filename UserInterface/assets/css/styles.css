@@ -1,6 +1,28 @@
-*{
-    padding:0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+* {
+    padding: 0;
     margin: 0;
+}
+
+body {
+    height: 100%;
+}
+
+.width-150 {
+    width: 150px;
+}
+
+.width-200 {
+    width: 200px;
+}
+
+.width-250 {
+    width: 250px;
+}
+
+.width-400 {
+    width: 400px;
 }
 
 
@@ -8,51 +30,191 @@
     grid-area: title;
     background-color: rgb(27, 134, 235);
 } */
-.main-navigation{
+
+.main-navigation {
     grid-area: navbar;
-    background-color: pink;
-}
-.main-carousel{
-    grid-area: head;
-    background-color: red;
-}
-.main-content{
-    grid-area: main;
-    background-color: green;
-    padding: 20px;
-    text-align: justify;
-}
-.main-footer{
-    grid-area: footer;
-    background-color: yellow;
+    background-color: #1E2C3C;
     position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%; 
+    height: 100%;
+    width: 350px;
+}
+
+.menu {
     text-align: center;
 }
 
+.menu-site-nav-container {
+    margin-top: 20px;
+    position: fixed;
+}
 
-.container{
+.menu-site-nav-container ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0px 20px;
+}
+
+.menu-site-nav-container ul li {
+    /* border: 1px solid white; */
+    padding: 17px;
+}
+
+.menu-site-nav-container ul li:hover {
+    background-color: #2E68AD;
+    transition: 0.7s;
+}
+
+#menu-item-1 a {
+    color: rgb(241, 241, 48)
+}
+
+.footer-div {
+    margin-top: 30px;
+}
+
+.custom-logo {
+    margin-bottom: 20px;
+}
+
+.main-carousel {
+    grid-area: head;
+}
+
+.main-carousel img {
+    width: 100%;
+}
+
+.main-content {
+    grid-area: main;
+    background-color: white;
+    padding: 20px;
+    text-align: justify;
+}
+
+.main-content-theme h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+}
+
+.main-content div p {
+    padding: 12px;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.main-content-theme p ul li {
+    padding-left: 22px;
+    font-size: 17px;
+    text-align: justify;
+}
+
+
+/* FOOTER */
+
+.main-footer {
+    grid-area: footer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: black;
+    background-color: greenyellow;
+    font-size: 14px;
+}
+
+.main-footer p {
+    padding: 15px 0;
+}
+
+
+/* CONTAINER */
+
+.container {
     display: grid;
-    background-color: aquamarine;
-    grid-template-areas: 
-    'navbar head head head head head'
-    'navbar main main main main main'
-    'navbar main main main main main'
-    'navbar main main main main main';
+    /* background-color: aquamarine; */
+    grid-template-areas: 'navbar head head head head head' 'navbar main main main main main' 'navbar main main main main main' 'navbar main main main main main' 'navbar footer footer footer footer footer';
     height: 150vh;
 }
 
+
+/* Button */
+
+.button {
+    border-radius: 4px;
+    background-color: #2E68AD;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+/* Schedule Form */
+
+#session-form label {
+    position: relative;
+    font-size: 1.2em;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#session-form input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+
 /* Schedule */
+
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
-  }
-  
-  /* Style the buttons inside the tab */
-  .tab button {
+}
+
+
+/* Style the buttons inside the tab */
+
+.tab button {
     background-color: inherit;
     float: left;
     border: none;
@@ -61,106 +223,166 @@
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
-  }
-  
-  /* Change background color of buttons on hover */
-  .tab button:hover {
+}
+
+
+/* Change background color of buttons on hover */
+
+.tab button:hover {
     background-color: #ddd;
-  }
-  
-  /* Create an active/current tablink class */
-  .tab button.active {
+}
+
+
+/* Create an active/current tablink class */
+
+.tab button.active {
     background-color: #ccc;
-  }
-  
-  /* Style the tab content */
-  .tabcontent {
+}
+
+
+/* Style the tab content */
+
+.tabcontent {
     display: none;
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
-  }
-
-
-.toggle{
-  display:inline-block;
- height:48px;
- width:48px;  /*background:url("http://icons.iconarchive.com/icons/pixelmixer/basic/48/plus-icon.png"); */
- }
- .toggle.expanded{
-   background-color: red;
-   /* background:url("http://cdn2.iconfinder.com/data/icons/onebit/PNG/onebit_32.png"); */
- }
-
-
-/*SDBFKJRBNJLGHWRLJFNWRJLBLRV JRBVLJFVJLBVLJBVDJBS;LIAEKDNASNFLI NWNWIJKLDXCWNLRBUHR EQQELRJICNROW*/
-
- .accordion {
-  background-color: #8fb7a5;
-  color: #FFF;
-  cursor: pointer;
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-  text-align: left;
-  border: 1px solid white;
-  outline: none;
-  transition: 0.4s;
-  font: 22px;
 }
 
+.toggle {
+    display: inline-block;
+    height: 48px;
+    width: 48px;
+    /*background:url("http://icons.iconarchive.com/icons/pixelmixer/basic/48/plus-icon.png"); */
+}
+
+.toggle.expanded {
+    background-color: red;
+    /* background:url("http://cdn2.iconfinder.com/data/icons/onebit/PNG/onebit_32.png"); */
+}
+
+
+/* SESSIONS PART  */
+
+#createSession h3,
+#createSession p,
+#createSession form {
+    width: 50%;
+    margin: auto;
+    align-content: center;
+}
+
+#createSession form button {
+    align-self: center;
+}
+
+#createSession form fieldset {
+    padding: 10px;
+    width: 100%;
+    margin: auto;
+    align-content: center;
+}
+
+#createSession form fieldset legend {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#createSession form input {
+    margin: 10px;
+    width: 30%;
+    padding: 8px;
+}
+
+#createSession form input:focus {
+    outline-color: green;
+}
+
+.accordion {
+    background-color: #8fb7a5;
+    color: #FFF;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: left;
+    border: 1px solid white;
+    outline: none;
+    transition: 0.4s;
+    font: 22px;
+}
+
+
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .accordion:hover {
-  background-color: #527e6a;
+
+.active,
+.accordion:hover {
+    background-color: #527e6a;
 }
 
 .sub-accordion {
-  background-color: rgb(114, 114, 235);
-  color: #FFF;
-  cursor: pointer;
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-  text-align: left;
-  border: 1px solid white;
-  outline: none;
-  transition: 0.4s;
-  font: 22px;
+    background-color: rgb(114, 114, 235);
+    color: #FFF;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: left;
+    border: 1px solid white;
+    outline: none;
+    transition: 0.4s;
+    font: 22px;
 }
+
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .sub-accordion:hover {
-  background-color: #322fc2;
-}
-/* Style the accordion panel. Note: hidden by default */
-.panel {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-}
-.sub-panel {
-  padding: 0 18px;
-  display: none;
-  overflow: visible;
+
+.active,
+.sub-accordion:hover {
+    background-color: #322fc2;
 }
 
-p{
-font: 16px; 
+
+/* Style the accordion panel. Note: hidden by default */
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
+
+.sub-panel {
+    padding: 0 18px;
+    display: none;
+    overflow: visible;
+}
+
+p {
+    font: 16px;
 }
 
 .accordion:after {
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  font-size: 15px;
-  float: right;
-  margin-left: 5px;
-}
-.sub-accordion:after {
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  font-size: 15px;
-  float: right;
-  margin-left: 5px;
-}
-.active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 15px;
+    float: right;
+    margin-left: 5px;
 }
 
+.sub-accordion:after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 15px;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+
+.footer-div {
+    text-align: center;
+    color: white;
+}
