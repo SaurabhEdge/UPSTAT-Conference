@@ -5,6 +5,7 @@
     margin: 0;
 }
 
+html,
 body {
     height: 100%;
 }
@@ -25,6 +26,20 @@ body {
     width: 400px;
 }
 
+li::marker {
+    padding-left: 0.5em;
+}
+
+a {
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    color: green;
+}
+
 
 /* .site-branding{
     grid-area: title;
@@ -35,7 +50,7 @@ body {
     grid-area: navbar;
     background-color: #1e2c3c;
     position: relative;
-    height: 100%;
+    min-height: 100vh;
     width: 350px;
 }
 
@@ -43,9 +58,27 @@ body {
     text-align: center;
 }
 
+.drFokoue {
+    margin: 10px;
+    text-align: center;
+    background-color: #091829;
+    color: white;
+    padding: 10px;
+}
+
+.drFokoue a {
+    color: white;
+    text-decoration: none;
+}
+
+.drFokoue a:hover {
+    color: greenyellow;
+}
+
 .menu-site-nav-container {
     margin-top: 20px;
     position: fixed;
+    /* height: 100vh; */
 }
 
 .menu-site-nav-container ul li a {
@@ -59,7 +92,7 @@ body {
 
 .menu-site-nav-container ul li {
     /* border: 1px solid white; */
-    padding: 17px;
+    padding: 15px 17px;
 }
 
 .menu-site-nav-container ul li:hover {
@@ -67,16 +100,13 @@ body {
     transition: 0.7s;
 }
 
-#menu-item-1 a {
-    color: rgb(241, 241, 48);
-}
-
-.footer-div {
-    margin-top: 30px;
+.nav-bar-active {
+    background-color: #2e68ad;
 }
 
 .custom-logo {
     margin-bottom: 20px;
+    width: 350px;
 }
 
 .main-carousel {
@@ -94,6 +124,10 @@ body {
     text-align: justify;
 }
 
+.main-content-theme {
+    padding: 20px;
+}
+
 .main-content-theme h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
@@ -105,10 +139,13 @@ body {
     line-height: 1.6;
 }
 
-.main-content-theme p ul li {
-    padding-left: 22px;
+.main-content-theme ul li {
+    padding-left: 0px;
     font-size: 17px;
     text-align: justify;
+    padding-left: 1em;
+    line-height: 1.6;
+    margin: 12px;
 }
 
 
@@ -139,7 +176,7 @@ body {
     display: grid;
     /* background-color: aquamarine; */
     grid-template-areas: 'navbar head head head head head' 'navbar main main main main main' 'navbar main main main main main' 'navbar main main main main main' 'navbar footer footer footer footer footer';
-    height: 150vh;
+    /* height: 150vh; */
 }
 
 
@@ -397,5 +434,22 @@ p {
 
 .footer-div {
     text-align: center;
-    color: white;
+    color: greenyellow;
+    margin-top: 30px;
+}
+
+.sponsor-image {
+    height: 200px;
+    max-width: 1000px;
+}
+
+.sponsors-main-content-theme ul li {
+    padding-left: 10px;
+    font-size: 17px;
+    text-align: justify;
+    margin: 20px;
+}
+
+.sponsors-main-content-theme ul li img {
+    padding: 10px;
 }
