@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="assets/css/styles.css" media="screen" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+</head>
+
+<body>
+    <div class="container">
+        <section class="main-carousel">
+            <!-- <h1>Carousel</h1> width="1169"-->
+            <img src="./assets/media/UPSTAT_Banner.jpg" class="banner" alt="carousel-banner" />
+        </section>
+        <section id="site-navigation" class="main-navigation" role="navigation" aria-label="Site Menu">
+            <!-- <div class="site-logo">
+                <a href="#" class="custom-logo" rel="home">
+                    <img src="./assets/media/UpStat_Logo2.jpg" class="custom-logo" alt="Upstat Logo" width="350"/>
+                </a>
+            </div> -->
+            <div class="menu-site-nav-container">
+                <div class="site-logo">
+                    <a href="#" class="custom-logo" rel="home">
+                        <img src="./assets/media/UpStat_Logo2.jpg" class="custom-logo" alt="UpSTATLogo" width="350" />
+                    </a>
+                </div>
+                <ul id="site-menu" class="menu">
+                    <li id="menu-item-1" class="Home">
+                        <a href="index.html">Get To Know UPSTAT</a>
+                    </li>
+                    <li id="menu-item-2" class="Schedule">
+                        <a href="schedule.html">Schedule</a>
+                    </li>
+                    <li id="menu-item-3" class="Registration">
+                        <a href="registration.html">Registration</a>
+                    </li>
+                    <li id="menu-item-4" class="Tutorials">
+                        <a href="tutorials.html">Tutorials</a>
+                    </li>
+                    <li id="menu-item-5" class="Speakers">
+                        <a href="keyNoteSpeaker.html">Keynote Speakers</a>
+                    </li>
+                    <li id="menu-item-6" class="Abstract">
+                        <a href="abstractSubmission.html">Abstract Submission</a>
+                    </li>
+                    <li id="menu-item-7" class="Awards">
+                        <a href="awardsAndPrizes.html">Awards and Prizes</a>
+                    </li>
+                    <li id="menu-item-8" class="Competition">
+                        <a href="dataAnalyticsCompetition.html">Data Analytics Competition</a>
+                    </li>
+                    <li id="menu-item-9" class="Sponsors">
+                        <a href="sponsors.html">Sponsors</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="main-content" class="main-content">
+            <div class="main-content-intro">
+                <!-- <p>
+                </p> -->
+            </div>
+            <div class="main-content-theme">
+                <button name="backButton" class="button"><i class="far fa-arrow-alt-circle-left"></i>&nbsp;Back</button>
+                <br/>
+                <div id="createSession">
+                    <h3>Create Session</h3>
+                    <p>Please enter the Session details: </p>
+                    <form id="session-form">
+                        <fieldset>
+                            <legend for="conference">Conference</legend>
+                            <label for="cnf-name">Name: <input type="text" placeholder="Enter name" /></label>
+                            <label for="cnf-city">City: <input type="text" placeholder="Enter city" /></label>
+                            <label for="cnf-state">State: <input type="text" placeholder="Enter state" /></label>
+                            <label for="cnf-start-date">Start Date: <input type="date" placeholder="MM/DD/YYYY" /></label>
+                            <label for="cnf-end-date">End Date: <input type="date" placeholder="MM/DD/YYYY" /></label>
+                        </fieldset>
+                        <fieldset>
+                            <legend for="session">Session</legend>
+                            <label for="session-name">Name: <input type="text" placeholder="Enter session name" /></label>
+                            <label for="session-topic">Topic: <input type="text" placeholder="Enter session topic" /></label>
+                            <label for="session-venue">Venue: <input type="text" placeholder="Enter session venue" /></label>
+                            <label for="session-organizer">Organizer: <input type="text" placeholder="Enter session organizer" /></label>
+                            <label for="session-category">Category: <input type="text" placeholder="Enter category" /></label>
+                            <label for="session-panel">Panel Participants <input type="text" placeholder="Enter panel participants" /></label>
+                            <label for="session-start-time">Start Time: <input type="datetime" placeholder="Time format" /></label>
+                            <label for="session-end-time">End Time: <input type="datetime" placeholder="time format" /></label>
+                        </fieldset>
+
+                        <button name="submit" class="button"><span>Create New Session</span></button>
+                    </form>
+                </div>
+        </section>
+        <br/>
+        <footer class="main-footer">
+            <p>
+                @2021 UPSTAT created by Team SpideRIT
+            </p>
+        </footer>
+        </div>
+
+        <script src="./assets/javascript/script.js"></script>
+</body>
+
+</html>

@@ -33,7 +33,7 @@ body {
 
 .main-navigation {
     grid-area: navbar;
-    background-color: #1E2C3C;
+    background-color: #1e2c3c;
     position: relative;
     height: 100%;
     width: 350px;
@@ -63,12 +63,12 @@ body {
 }
 
 .menu-site-nav-container ul li:hover {
-    background-color: #2E68AD;
+    background-color: #2e68ad;
     transition: 0.7s;
 }
 
 #menu-item-1 a {
-    color: rgb(241, 241, 48)
+    color: rgb(241, 241, 48);
 }
 
 .footer-div {
@@ -90,7 +90,7 @@ body {
 .main-content {
     grid-area: main;
     background-color: white;
-    padding: 20px;
+    /* padding: 20px; */
     text-align: justify;
 }
 
@@ -147,7 +147,7 @@ body {
 
 .button {
     border-radius: 4px;
-    background-color: #2E68AD;
+    background-color: #2e68ad;
     border: none;
     color: white;
     text-align: center;
@@ -205,31 +205,44 @@ body {
 
 /* Schedule */
 
-.tab {
+
+/* .tab {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
+} */
+
+.tab {
+    display: flex;
+    flex-direction: row;
+    /* margin: 20px; */
+    /* padding: 10px; */
+    /* width: 50%;
+    margin: 20px auto; */
 }
 
 
 /* Style the buttons inside the tab */
 
-.tab button {
-    background-color: inherit;
-    float: left;
+.tablinks {
+    background-color: #1e2c3c;
     border: none;
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
 }
 
 
 /* Change background color of buttons on hover */
 
 .tab button:hover {
-    background-color: #ddd;
+    background-color: orange;
 }
 
 
@@ -300,7 +313,7 @@ body {
 
 .accordion {
     background-color: #8fb7a5;
-    color: #FFF;
+    color: #fff;
     cursor: pointer;
     padding: 10px;
     margin-bottom: 10px;
@@ -322,7 +335,7 @@ body {
 
 .sub-accordion {
     background-color: rgb(114, 114, 235);
-    color: #FFF;
+    color: #fff;
     cursor: pointer;
     padding: 10px;
     margin-bottom: 10px;
@@ -378,7 +391,7 @@ p {
 }
 
 .active:after {
-    content: "\2796";
+    content: '\2796';
     /* Unicode character for "minus" sign (-) */
 }
 
