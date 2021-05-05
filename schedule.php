@@ -1,5 +1,40 @@
 <?php
     $page = "schedule";
+    $pathUI = './UserInterface/';
+
+    include('./header.php');
+    include('./nav.php');
+
+?>
+
+
+
+
+<section id="main-content" class="main-content">
+            <div class="main-content-intro">
+            </div>
+            <div class="main-content-theme">
+                <h3>Schedule</h3>
+                <div class="tab">
+                    <button class="tablinks" onclick="openDay(event, 'Monday')">Monday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Tuesday')">Tuesday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Wednesday')">Wednesday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Thursday')">Thursday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Friday')">Friday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Saturday')">Saturday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Sunday')">Sunday</button>
+                </div>
+                <div class="schedule-header">
+
+                </div>
+
+                <div id="Monday" class="tabcontent">
+                    <h3>Monday</h3>
+                    <p>No Events Today!</p>
+                </div>
+
+<?php
+    $page = "schedule";
     $path = './';
     // include($path.'assets/inc/header.php');
     // include($path.'assets/inc/nav.php');
@@ -34,11 +69,12 @@
     }
 
     
-    // var_dump($records[0]);
-    echo "<h1>".$confName."</h1>";
-    echo "<h2>".$confCity.", ". $confState."</h2>";
-    // echo "<br>";
-    echo "<h2>".$confStart." - ".$confEnd."</h2>";
+    //PRINT CONFERENCE DATES
+    // echo "<h1>".$confName."</h1>";
+    // echo "<h2>".$confCity.", ". $confState."</h2>";
+    // echo "<h2>".$confStart." - ".$confEnd."</h2>";
+
+    // echo "<h1>".date_format($confStart, 'l jS F Y')."</h1>";
 
 
 
@@ -55,18 +91,72 @@
     }else{
         echo 'issue with query';
     }
-
+    $dayNames =array();
+    $output = '';
+    $lastDay ='';
+    $bool = 1;
     if($results2){
+        // while($rowHolder2 = mysqli_fetch_array($results2, MYSQLI_ASSOC)){
+        //     ///////////////////////////////////////////////////////////display tab correctly//////////////////////////////
+        //     $slotStart = $rowHolder2['starttime'];
+        //     $slotEnd = $rowHolder2['endtime'];
+
+        //     $start = date_create($slotStart);
+        //     $end = date_create($slotEnd);
+        //     $day = date_format($start, 'l');           
+
+        //     if($day!=$lastDay){              
+
+        //         $lastDay = $day;
+
+        //         $dayNames.array_push($day);
+                
+                
+        //         $bool +=1;
+        //     }
+
+        // }
         while($rowHolder2 = mysqli_fetch_array($results2, MYSQLI_ASSOC)){
             $records2[] = $rowHolder2;
             $slotId = (int) $rowHolder2['id'];
             $slotName = $rowHolder2['name'];
             $slotStart = $rowHolder2['starttime'];
             $slotEnd = $rowHolder2['endtime'];
+
+            $start = date_create($slotStart);
+            $end = date_create($slotEnd);
+            $day = date_format($start, 'l');//save for tab
+            $fullDate = date_format($start, 'l jS F Y');//to each day title
+            $startHour = date_format($start, 'G:ia');
+            $endHour = date_format($end, 'G:ia');
             
             //DISPLAY SLOT TIME
-            echo "<h3>".$slotStart." - ".$slotEnd."</h3>";
-            echo "<h4>".$slotName."</h4>"; 
+            
+            // echo "<h3> PERALTA".$slotStart." - ".$slotEnd."</h3>";
+            // 
+            // echo "<h3> PAOLA ".date_format($start, 'g:ia \o\n l jS F Y')."</h3>";
+            
+            // echo "<h3> PAOLA ".$fullDate." day: ".$day."</h3>";
+            // echo "<h4>".$slotName."</h4>"; 
+
+            if($day!=$lastDay){
+                if($output!=''){
+                    $output .='</div>';
+                }
+                $output .='<div id="'.$day.'" class="tabcontent"> <h3>'.$fullDate.'</h3>';
+
+                echo $output;
+                // echo " ";
+                $output = '';
+                $lastDay = $day;
+
+                $dayNames.array_push($day);
+                
+                
+                $bool +=1;
+            }
+            
+
             
             
 
@@ -94,18 +184,28 @@
                     $sspanel = $rowHolder3['panel_participants'];
 
                     //DISPLAY SESSIONS
-                    echo "<h4>".$count."- ".$sstopic."</h4>";
-                    echo "<h5> Location: ".$sslocation."</h5>";
-                    echo "<p> Organizer: ".$ssorganizer."</p><br>";
-                    // echo $sspanel ==""? "": "<p> Panel: ".$sspanel."</p><br>";
-                    echo "<p> Panel: ".$sspanel."</p><br>";
+                    // echo "<h4>".$count."- ".$sstopic."</h4>";
+                    // echo "<h5> Location: ".$sslocation."</h5>";
+                    // echo "<p> Organizer: ".$ssorganizer."</p><br>";
+                    // // echo $sspanel ==""? "": "<p> Panel: ".$sspanel."</p><br>";
+                    // echo "<p> Panel: ".$sspanel."</p><br>";
 
-                    $count +=1;
+                    
+
+                    //put: <button class="accordion">3:30 - 4:00 PM: Welcome Session</button>
+                    if($count==1){
+                        $output .= '<button class="accordion">'.$startHour.' - '.$endHour.': '.$slotName.'</button> <div class="panel">';
+                    }
+                    $output .= '<h4>'.$count."- ".$sstopic.'</h4>';
+                    $output .= "<p> Location: ".$sslocation."</p>";
+                    
 
 
 
                     //QUERY 4 getting all the Presentations
                     // $sessionId = 2;
+
+                    $presentations = '';
                     
                     $sql4 = 'select * from `Presentation` where sessionID='.$sessionId;
                     
@@ -126,9 +226,13 @@
                             $ppTopic = $rowHolder4['topic'];
                             $ppspeaker = $rowHolder4['speaker'];
 
-                            echo "Presentation";
-                            echo "</br><p>".$count.".".$count2."- TOPIC PRESENTATION: ".$ppTopic."</p>";
-                            echo "</br><p>PRESENTATION Speakers: ".$ppspeaker."</p>";
+                            // echo "Presentation";
+                            // echo "</br><p>".$count.".".$count2."- TOPIC PRESENTATION: ".$ppTopic."</p>";
+                            // echo "</br><p>PRESENTATION Speakers: ".$ppspeaker."</p>";
+
+
+
+                            $presentations .= "<p>    ".$count.".".$count2."- ".$ppTopic."</p>"."<p> Speakers: ".$ppspeaker."</p>";
 
                             $count2 +=1;
 
@@ -138,6 +242,12 @@
                             
                         }
                     }
+
+                    // echo $presentations;
+                    if($presentations!=''){
+                        $output .=$presentations;                        
+                    }
+                    $count +=1;
                     
                     // var_dump($results4);
                     // if($results4){
@@ -147,17 +257,22 @@
                     
                     
                 }
+                $output .= '</div>';
             }
 
             
 
-            echo "<hr>";
+            
+
+            // echo "<hr>";
 
 
 
 
             
         }
+        $output .='</div>';
+        echo $output;
     }
 
     // var_dump($records2);
@@ -237,7 +352,7 @@
     mysqli_close($mysqli);
 ?>
 
-<!-- 
+
 <?php
-    include($path.'assets/inc/footer.php');
-?> -->
+   include('./footer.php');
+?> 
