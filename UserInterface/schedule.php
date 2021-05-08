@@ -1,71 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+$path ='./';
+$page = 'Schedule';
+include $path.'assets/inc/header.php'
+?>
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule</title>
-    <link rel="stylesheet" href="assets/css/styles.css" media="screen" />
-</head>
-
-<body>
-    <div class="container">
-        <section class="main-carousel">
-            <!-- <h1>Carousel</h1> width="1169"-->
-            <img src="./assets/media/UPSTAT_Banner.jpg" class="banner" alt="carousel-banner" />
-        </section>
-        <section id="site-navigation" class="main-navigation" role="navigation" aria-label="Site Menu">
-            <!-- <div class="site-logo">
-                <a href="#" class="custom-logo" rel="home">
-                    <img src="./assets/media/UpStat_Logo2.jpg" class="custom-logo" alt="Upstat Logo" width="350"/>
-                </a>
-            </div> -->
-            <div class="menu-site-nav-container">
-                <div class="site-logo">
-                    <a href="#" class="custom-logo" rel="home">
-                        <img src="./assets/media/UpStat_Logo2.jpg" class="custom-logo" alt="UpSTATLogo" width="350" />
-                    </a>
-                </div>
-                <div class="drFokoue">
-                    <p>
-                        <h3> Dr. Ernest Fokoue</h3>
-                        General Conference Chair
-                        <br/>Mail to: <a href="mailto:epfeqa@rit.edu">epfeqa@rit.edu</a>
-                    </p>
-                </div>
-                <ul id="site-menu" class="menu">
-                    <li id="menu-item-1" class="Home">
-                        <a href="index.html">Get To Know UPSTAT</a>
-                    </li>
-                    <li id="menu-item-2" class="Schedule nav-bar-active">
-                        <a href="schedule.html">Schedule</a>
-                    </li>
-                    <li id="menu-item-3" class="Registration">
-                        <a href="registration.html">Registration</a>
-                    </li>
-                    <li id="menu-item-4" class="Tutorials">
-                        <a href="tutorials.html">Tutorials</a>
-                    </li>
-                    <li id="menu-item-5" class="Speakers">
-                        <a href="keyNoteSpeaker.html">Keynote Speakers</a>
-                    </li>
-                    <li id="menu-item-6" class="Abstract">
-                        <a href="abstractSubmission.html">Abstract Submission</a>
-                    </li>
-                    <li id="menu-item-7" class="Awards">
-                        <a href="awardsAndPrizes.html">Awards and Prizes</a>
-                    </li>
-                    <li id="menu-item-8" class="Competition">
-                        <a href="dataAnalyticsCompetition.html">Data Analytics Competition</a>
-                    </li>
-                    <li id="menu-item-9" class="Sponsors">
-                        <a href="sponsors.html">Sponsors</a>
-                    </li>
-                </ul>
-                <div class="footer-div">
-                    @2021 UPSTAT created by Team SpideRIT
-                </div>
-            </div>
-        </section>
         <section id="main-content" class="main-content">
             <div class="main-content-intro">
             </div>
