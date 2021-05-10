@@ -5,35 +5,6 @@
     include('./header.php');
     include('./nav.php');
 
-?>
-
-
-
-
-<section id="main-content" class="main-content">
-            <div class="main-content-intro">
-            </div>
-            <div class="main-content-theme">
-                <h3>Schedule</h3>
-                <div class="tab">
-                    <button class="tablinks" onclick="openDay(event, 'Monday')">Monday</button>
-                    <button class="tablinks" onclick="openDay(event, 'Tuesday')">Tuesday</button>
-                    <button class="tablinks" onclick="openDay(event, 'Wednesday')">Wednesday</button>
-                    <button class="tablinks" onclick="openDay(event, 'Thursday')">Thursday</button>
-                    <button class="tablinks" onclick="openDay(event, 'Friday')">Friday</button>
-                    <button class="tablinks" onclick="openDay(event, 'Saturday')">Saturday</button>
-                    <button class="tablinks" onclick="openDay(event, 'Sunday')">Sunday</button>
-                </div>
-                <div class="schedule-header">
-
-                </div>
-
-                <div id="Monday" class="tabcontent">
-                    <h3>Monday</h3>
-                    <p>No Events Today!</p>
-                </div>
-
-<?php
     $page = "schedule";
     $path = './';
     // include($path.'assets/inc/header.php');
@@ -68,6 +39,115 @@
         }
     }
 
+    //QUERY GET TIMESLOTS OF CONFERENCE
+    $sql2 = 'select * from `Timeslot` where conferenceID='.$conferenceId.' ORDER BY starttime, endtime';
+    // $sql2 = 'select * from `Timeslot` where conferenceID='.$conferenceId;
+    
+    //execute the query
+    if($results2 = $mysqli->query($sql2)){
+        // printf("select returned %d rows<br/><br/>", $results->num_rows);
+        // echo 'hello';
+    }else{
+        echo 'issue with query';
+    }
+    $dayNames =array();
+    $output = '';
+    $lastDay ='';
+    $lastDayUnique ='';
+    $bool = 1;
+    if($results2){
+        $number = 1;
+        while($rowHolder2 = mysqli_fetch_array($results2, MYSQLI_ASSOC)){
+            ///////////////////////////////////////////////////////////display tab correctly//////////////////////////////
+            $slotStart = $rowHolder2['starttime'];
+            $slotEnd = $rowHolder2['endtime'];
+
+            $start = date_create($slotStart);
+            $end = date_create($slotEnd);
+            $day = date_format($start, 'l');           
+
+            if($day!=$lastDayUnique){              
+
+                $lastDayUnique = $day;
+
+                // $d = [$day=> $number]
+                array_push($dayNames, $day);
+                $number  +=1;
+                
+            }
+
+        }
+        // var_dump($dayNames);
+       
+    }
+
+?>
+
+
+
+
+<section id="main-content" class="main-content">
+            <div class="main-content-intro">
+            </div>
+            <div class="main-content-theme">
+                <h3>Schedule</h3>
+                <div class="tab">
+                    <button class="tablinks" onclick="openDay(event, 'Monday')" <?php echo (in_array("Monday", $dayNames))? '' : 'style="display:none;"'?>>Monday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Tuesday')" <?php echo (in_array("Tuesday", $dayNames))? '' : 'style="display:none;"'?>>Tuesday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Wednesday')" <?php echo (in_array("Wednesday", $dayNames))? '' : 'style="display:none;"'?> >Wednesday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Thursday')" <?php echo (in_array("Thursday", $dayNames))? '' : 'style="display:none;"'?> >Thursday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Friday')" <?php echo (in_array("Friday", $dayNames))? '' : 'style="display:none;"'?> >Friday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Saturday')" <?php echo (in_array("Saturday", $dayNames))? '' : 'style="display:none;"'?> >Saturday</button>
+                    <button class="tablinks" onclick="openDay(event, 'Sunday')" <?php echo (in_array("Sunday", $dayNames))? '' : 'style="display:none;"'?> >Sunday</button>
+                </div>
+                <div class="schedule-header">
+
+                </div>
+
+
+
+                <!-- <div id="Monday" class="tabcontent">
+                    <h3>Monday</h3>
+                    <p>No Events Today!</p>
+                </div> -->
+
+<?php
+
+   
+    $page = "schedule";
+    $path = './';
+    // include($path.'assets/inc/header.php');
+    // include($path.'assets/inc/nav.php');
+    include("./dbCon.php");
+
+    // $conferenceId = 1;
+
+
+    // //QUERY GET CONFERENCE INFO
+    // // $sql = 'select content from `finalProject` where page="'.$page .'"';
+    // $sql = 'select * from `Conference` where id='.$conferenceId;
+    
+    // //execute the query
+    // if($results = $mysqli->query($sql)){
+    //     // printf("select returned %d rows<br/><br/>", $results->num_rows);
+    // }else{
+    //     echo 'issue with query';
+    // }
+
+    
+    
+    // if($results){
+    //     while($rowHolder = mysqli_fetch_array($results, MYSQLI_ASSOC)){
+    //         $records[] = $rowHolder;
+            
+    //         $confName = $rowHolder['name'];
+    //         $confCity = $rowHolder['city'];
+    //         $confState = $rowHolder['state'];
+    //         $confStart = $rowHolder['startdate'];
+    //         $confEnd = $rowHolder['enddate'];
+    //     }
+    // }
+
     
     //PRINT CONFERENCE DATES
     // echo "<h1>".$confName."</h1>";
@@ -94,8 +174,10 @@
     $dayNames =array();
     $output = '';
     $lastDay ='';
+    $lastDayUnique ='';
     $bool = 1;
     if($results2){
+        // $number = 1;
         // while($rowHolder2 = mysqli_fetch_array($results2, MYSQLI_ASSOC)){
         //     ///////////////////////////////////////////////////////////display tab correctly//////////////////////////////
         //     $slotStart = $rowHolder2['starttime'];
@@ -105,16 +187,23 @@
         //     $end = date_create($slotEnd);
         //     $day = date_format($start, 'l');           
 
-        //     if($day!=$lastDay){              
+        //     if($day!=$lastDayUnique){              
 
-        //         $lastDay = $day;
+        //         $lastDayUnique = $day;
 
-        //         $dayNames.array_push($day);
+        //         // $d = [$day=> $number]
+        //         array_push($dayNames, $day);
+        //         $number  +=1;
                 
-                
-        //         $bool +=1;
         //     }
 
+        // }
+        // var_dump($dayNames);
+        // if (in_array("Friday", $dayNames)) {
+        //     echo "Existe Friday";
+        // }
+        // if (in_array("mac", $dayNames)) {
+        //     echo "Existe mac";
         // }
         while($rowHolder2 = mysqli_fetch_array($results2, MYSQLI_ASSOC)){
             $records2[] = $rowHolder2;
@@ -150,7 +239,6 @@
                 $output = '';
                 $lastDay = $day;
 
-                $dayNames.array_push($day);
                 
                 
                 $bool +=1;
